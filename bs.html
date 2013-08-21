@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+    <meta charset="utf-8">
+    <title>Bootstrap, from Twitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	
+	<link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" media="all">
+	
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+	
+	<link type="text/css" rel="stylesheet" href="style.css" media="all">
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script type="text/javascript" src="handlebars.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="gos-core.js"></script>
+
+  </head>
+
+  <body>
+ <!-- Fixed navbar -->
+    <div gos="" class="navbar navbar-inverse navbar-fixed-top">
+	<div class="data">
+	{
+		title: 'Main Page Title',
+		items: [{
+			itemClass: 'active',
+			link: '#home',
+			title: 'Home'
+		}, {
+			itemClass: '',
+			link: '#about',
+			title: 'About Us'
+		}, {
+			title: 'With Childs',
+			children: [{
+				itemClass: '',
+				link: '#ch_1',
+				title: 'Child 1'
+			}, {
+				itemClass: '',
+				link: '#ch_2',
+				title: 'Child 2'
+			}]
+		}]
+	}
+	</div>
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			{{#repeat 3}}
+			<span class="icon-bar"></span>
+			{{/repeat}}
+          </button>
+          <a class="navbar-brand" href="#">{{title}}</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+			{{#each items}}
+			{{#if children}}
+			<li class="dropdown {{itemClass}}">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{title}} <b class="caret"></b></a>
+			  <ul class="dropdown-menu">
+				{{#each children}}
+					<li class="{{itemClass}}"><a href="{{link}}">{{title}}</a></li>
+				{{/each}}
+			  </ul>
+            </li>
+			{{else}}
+			<li class="{{itemClass}}"><a href="{{link}}">{{title}}</a></li>
+			{{/if}}
+			{{/each}}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container theme-showcase">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>Hello, world!</h1>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <p><a class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+      </div>
+
+
+
+      <div class="page-header">
+        <h1>Components</h1>
+      </div>
+      <p>
+			HERE ...
+      </p>
+     
+    </div> <!-- /container -->
+  </body>
+</html>

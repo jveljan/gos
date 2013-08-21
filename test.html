@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>Gos Test Components</title>
+	<script src="gos.js"></script>
+</head>
+<body>
+
+	<div gos="accordion">
+	<!-- config & data -->
+		<div class="data">
+		[{
+			title: 'Accordion Item One',
+			index: 1
+		}, {
+			title: 'Accordion Item Two',
+			index: 2
+		}, {
+			title: 'Accordion Item Three',
+			index: 3
+		}]
+		</div>
+	<!-- config & data -->
+
+	<!-- template -->
+		<h3>{{title}}</h3>
+		<div class="body">
+			Accordion Body Element {{index}}
+		</div>
+	<!-- /template -->
+	</div>
+	
+</body>
+</html>
